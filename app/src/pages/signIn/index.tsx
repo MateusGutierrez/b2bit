@@ -7,6 +7,7 @@ import {
 import './index.css'
 import logo from '../../assets/b2bit.png'
 
+
 export const SingInPage = () => {
     return (
         <div className="shadow-box rounded-[18px]">

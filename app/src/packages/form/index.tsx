@@ -11,8 +11,12 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { LoginSchema, TLoginFormValue } from "@/schemas"
+import { useContext } from "react"
+import { UserContext } from "@/providers"
 
 export function ProfileForm() {
+  const {loginSubmit} = useContext(UserContext)
+
   const form = useForm<TLoginFormValue> ({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -20,18 +24,13 @@ export function ProfileForm() {
         password: ""
     },
   })
-
-  function onSubmit(values: TLoginFormValue) {
-    console.log(values)
-  }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-[25.88px]">
+      <form onSubmit={form.handleSubmit(loginSubmit)} className="space-y-[25.88px]">
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
-            
             <FormItem>
               <FormLabel className="text-[#262626] text-lg font-semibold leading-[22.5px] mb-[9px]">E-mail</FormLabel>
               <FormControl>
@@ -39,14 +38,12 @@ export function ProfileForm() {
               </FormControl>
               <FormMessage />
             </FormItem>
-            
           )}
         />
         <FormField
           control={form.control}
           name="password"
           render={({ field }) => (
-            
             <FormItem>
               <FormLabel className="text-[#262626] text-lg font-semibold leading-[22.5px] mb-[9px]">Password</FormLabel>
               <FormControl>
@@ -54,7 +51,6 @@ export function ProfileForm() {
               </FormControl>
               <FormMessage />
             </FormItem>
-            
           )}
         />
         <Button type="submit" className="w-full h-[54px] text-[#FAFAFA] leading-[56.25px] text-[18px] font-bold rounded-[9px]" >Sign In</Button>

@@ -1,14 +1,20 @@
 
 import { create } from "zustand";
-import { Store } from "./interface";
+import { Store, UserData, UserInfo } from "./interface";
+
 
 export const useStore = create<Store>((set) => ({
     user: [],
-    addUser: (newUser) => set(({ user }) => ({
-        user: [...user, newUser],
+    userInfo: [],
+    addUserInfo: (info: UserInfo) => set((state) => ({
+        userInfo: [... state.userInfo, info]
     })),
-    removeUser: (userId) => set(({ user }) => ({
-        user: user.filter(currentUser => currentUser.id !== userId),
+    addUser: (newUser: UserData) => set((state) => ({
+        user: [...state.user, newUser],
+    })),
+    removeUser: (userId: number | string) => set((state) => ({
+        user: state.user.filter(currentUser => userId !== currentUser.user.id),
+        userInfo: state.userInfo.filter(currentUser => userId !== currentUser.id)
     })),
 }));
 

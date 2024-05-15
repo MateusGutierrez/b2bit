@@ -3,8 +3,28 @@ export interface AuthFields {
     password: string
 }
 
-export interface User {
+export interface Avatar {
     id: number;
+    image_high_url: string;
+    image_medium_url: string;
+    image_low_url: string;
+}
+export interface Role {
+    value: number;
+    label: string;
+}
+export interface UserInfo {
+    id: number | string;
+    avatar: Avatar | null;
+    name: string;
+    last_name: string;
+    email: string;
+    role: Role;
+    last_login: string;
+    staff_role: Role;
+}
+export interface User {
+    id: number | string;
     name: string;
     email: string;
     is_active: boolean;
@@ -32,7 +52,9 @@ export interface State {
 }
 
 export interface Store {
-    user: User[],
-    addUser: (user: User) => void;
-    removeUser: (userId: number) => void;
+    user: UserData[],
+    userInfo: UserInfo[],
+    addUserInfo: (userInfo: UserInfo) => void
+    addUser: (user: UserData) => void;
+    removeUser: (userId: number | string) => void;
 }
