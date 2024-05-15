@@ -85,6 +85,10 @@ export const UserProvider = ({children}: iProviderPros) => {
       localStorage.setItem("@token_refresh", tokens.refresh)
       if(!user.is_active){
         toast.error('Esta conta não está ativa!', { autoClose: 2500 });
+        localStorage.clear()
+        setTimeout(() => {
+          navigate('/');
+        }, 2500);
       }
       setTimeout(() => {
         navigate('/profile');
