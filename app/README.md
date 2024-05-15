@@ -1,30 +1,30 @@
-# React + TypeScript + Vite
+# 💻 Frontend by b2bit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Getting started
 
-Currently, two official plugins are available:
+First of all, Check your node version. In this project, `node 18.0.0` or `higher` is recommended:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To check your node version, run:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+node -v
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+If your node version it is `lower than 18.0.0`. Checkout how to use `Node Version Manager` - [nvm](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/);
+
+### Installing dependencies:
+
+At root, to install the project dependencies run:
+
+```sh
+npm install
+```
+
+### Run the application in localhost:
+
+Once the dependencies are installed, run:
+
+```sh
+npm run dev
+```
+
