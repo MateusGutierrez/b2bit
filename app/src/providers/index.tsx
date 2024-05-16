@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 import { TLoginFormValue } from "../schemas/index";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,14 +6,12 @@ import { useNavigate } from "react-router-dom";
 import {  UserData } from "@/store/interface";
 import   Api   from "@/services/api";
 import { useStore } from "@/store";
-import {head} from 'lodash'
+import { head } from 'lodash'
 
 interface iUserContext{
   loginSubmit: (data: TLoginFormValue) => Promise<void>;
   logoutUser: () => void;
   getUserInfo: (token: string) => void;
-  message: boolean;
-  setMessage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 interface iProviderPros{
   children: React.ReactNode
@@ -22,7 +20,6 @@ interface iProviderPros{
 export const UserContext = createContext({} as iUserContext)
 
 export const UserProvider = ({children}: iProviderPros) => {
-  const [message, setMessage] = useState(true)
   const navigate = useNavigate();
   const {
     user, 
@@ -64,8 +61,6 @@ export const UserProvider = ({children}: iProviderPros) => {
       }
     }catch(error){
       console.log(error)
-    }finally{
-      setMessage(false)
     }
 
   }
@@ -95,7 +90,6 @@ export const UserProvider = ({children}: iProviderPros) => {
       }, 2500);
     } catch (error) {
       console.log(error)
-      toast.error(error.response.data.detail, { autoClose: 2500 });
     }
   };
   
@@ -106,7 +100,7 @@ export const UserProvider = ({children}: iProviderPros) => {
     navigate("/")
     toast.success("Saiu", {autoClose:2500})
   }
-  
+
   useEffect(() => {
     loadUser()
   },[])
@@ -118,8 +112,6 @@ export const UserProvider = ({children}: iProviderPros) => {
             loginSubmit, 
             logoutUser, 
             getUserInfo,
-            message,
-            setMessage
           }
         }
       >
