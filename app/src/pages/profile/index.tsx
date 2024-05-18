@@ -22,7 +22,7 @@ export const Profile = () => {
     return (
         <div className=" h-[100vh] w-full bg-[#F1F5F9]">
             <div className="flex w-full h-[70px] items-center justify-end bg-[#FFFFFF]">
-                <Button onClick={logoutUser} className="mr-[34px] w-[272px] h-[44px] text-[#FAFAFA] leading-[56.25px] text-[18px] font-bold rounded-[6.33px] ">Logout</Button>
+                <Button onClick={logoutUser} className="mr-[34px] w-[272px] h-[44px] text-[#FAFAFA] leading-[56.25px] text-[18px] font-bold rounded-[6.33px]">Logout</Button>
             </div>
             <div className="flex justify-center">
                 <Card className="w-[356px] h-[315px] mt-[95px] bg-[#FDFDFD] flex flex-col justify-between">
