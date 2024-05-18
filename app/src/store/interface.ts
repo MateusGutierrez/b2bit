@@ -1,8 +1,3 @@
-export interface AuthFields {
-    email: string;
-    password: string
-}
-
 export interface Avatar {
     id: number;
     image_high_url: string;
@@ -45,16 +40,8 @@ export interface UserData {
     tokens: Tokens;
 }
 
-export interface State {
-    fields: AuthFields;
-    isLoading: boolean;
-    user: UserData;
-}
 
 export interface Store {
-    user: UserData[],
-    userInfo: UserInfo[],
-    addUserInfo: (userInfo: UserInfo) => void
-    addUser: (user: UserData) => void;
-    removeUser: (userId: number | string) => void;
+    userInfo: UserInfo[];
+    addUserInfo: (userInfo: UserInfo) => void;
 }

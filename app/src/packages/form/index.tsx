@@ -14,7 +14,7 @@ import { LoginSchema, TLoginFormValue } from "@/schemas"
 import { useContext } from "react"
 import { UserContext } from "@/providers"
 
-export function ProfileForm() {
+function ProfileForm() {
   const {loginSubmit} = useContext(UserContext)
 
   const form = useForm<TLoginFormValue> ({
@@ -58,3 +58,4 @@ export function ProfileForm() {
     </Form>
   )
 }
+export default ProfileForm;
